@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * @author Lauren Smart 19016480
- */
+*/
 public class Interface {
  
 public void Interface()
@@ -136,99 +136,162 @@ private void addCompetitor(Competition C02)
   {
     Competitor C1 = new Competitor();
     Scanner s = new Scanner(System.in);
-    System.out.println("Enter the competitor number (100-999): ");
-    int compNumber = s.nextInt();
-    
-    if(C1.getCompNumber()>100||C1.getCompNumber()<999)
+   
+   // Add competitor
+   int compNumber = 0;
+    while(compNumber <100 || compNumber > 999)
+    {
+        System.out.println("Enter the competitor number (100-999): ");
+        if(s.hasNextInt())
         {
-            
-        if(C02.checkCompetitor(compNumber)==false)
-        {
-            C1.setCompNumber(compNumber);
-            }   
-       
-        if(C1.getCompNumber()<100||C1.getCompNumber()>999)
-        {     
-            System.out.println("Invalid number. Please add valid number:");
-            s.nextInt();
-            }
+            compNumber = s.nextInt();
         }
- 
+        else
+        {
+            String temp = s.next();
+            compNumber = 0;
+        }
+        s.nextLine();
+    }
+  
+   if(C02.checkCompetitor(compNumber)==false)
+   {
+        C1.setCompNumber(compNumber);
+   
         System.out.println("Enter competitor's full name: ");
         String compName = s.nextLine();
         C1.setCompName(compName);
-        
-        s.nextLine();
-        
-    
-        System.out.println("Enter competitor's age: ");
-        int compAge = s.nextInt();
-        C1.setCompAge(compAge);
-                    
-            if(C1.getCompAge()>1)
+        int compAge = 0;
+                         
+            while(compAge<1)
             {
-                C1.setCompAge(compAge);
+                System.out.println("Enter competitor's age: ");
+                    if(s.hasNextInt())
+                    {
+                        compAge=s.nextInt();
+                    }
+                    else
+                    {
+                        String temp = s.next();
+                        compAge=0;
+                    }
                 }   
-                    else   
-                    {     
-                        System.out.println("Invalid age. Please add valid age:");
-                        s.nextInt();
-                        } 
-                       
-         
+                    C1.setCompAge(compAge);
+                    s.nextLine();
+                        
         System.out.println("Enter competitor's hometown: ");
         String homeTown = s.nextLine();
         C1.setHometown(homeTown);
-        s.nextLine();
         
-        // Event details
-        BreastStroke B1 = new BreastStroke();
+        
+        
        
-        System.out.println("Enter event number (1-100):");
-        int eventNo = s.nextInt();
+        // Event details
+//         BreastStroke B1 = new BreastStroke();
+//            
+//            System.out.println("Enter event number: ");
+//            int eventNo = s.nextInt();
+//            
+//            if(C02.checkCompetitor(eventNo)==true)  //.checkArch(arch_name)==true)//
+//            {
+//                B1.setEventNo(C02.addCompetitor(C1)eventNo);   //.setArch(m2.setArchaeo(arch_name, a1));
+//            }
+//            else
+//            {
+//                C02.addCompetitor(C1);
+//                a1.setFull_name(arch_name);
         
-        if(B1.getEventNo() >= 1 || B1.getEventNo() < 101)
+        
+        
+        
+                                    BreastStroke B1 = new BreastStroke();
+                                    System.out.println("Enter event number (1-100):");
+                                    int eventNo = 0;
+
+                                    while(eventNo <1 || eventNo > 100)
+                                {
+                                   // System.out.println("\nEnter the event number (1-100): ");
+                                    if(s.hasNextInt())
+                                    {
+                                        eventNo = s.nextInt();
+                                    }
+                                    else
+                                    {
+                                        String temp = s.next();
+                                        eventNo = 0;
+                                    }
+        
+        //      int eventNo = 0;
+//                               
+//        while(eventNo < 1 || eventNo > 100)
+//            {
+//                System.out.println("*Invalid event number*.  Please enter valid number:");
+//                eventNo = s.nextInt();
+//                }    
+//        s.nextLine();
+     if(C02.checkCompetitor(eventNo))
+       // if(C02.checkEvent(eventNo)==true)
         {
-             if(C02.checkEvent(eventNo)==true)
-             System.out.println("Event is in competition");
-                C02.getEvent(eventNo, B1).setEventNo(eventNo);
-           
-                        
-        if(B1.getEventNo() < 1 || B1.getEventNo() > 100)
-            {
-                
-                System.out.println("*Invalid event number*.  Please enter valid number:");
-                   s.nextLine();  
-                }
-        s.nextLine();
-        }    
+            C1.setCompEvent(C02.getEvent(eventNo, B1));
+        }
+        else
+        {
+        B1.setEventNo(eventNo);    
+        
+//checking for existing breastroke details and attaching to competitor
         
         // menu choice for venue type
         boolean validInput = false;
-        System.out.println("Enter a venue name or venue code: "); 
+        System.out.println("Enter a venue name or venue number: "); 
         String venue = s.nextLine();
-      //  int venue2 = Integer.parseInt(s.nextLine());
+        while(validInput)
            
+        {
+            //String venue = s.nextLine();
             if(venue.isEmpty() || venue.contains("null") || venue.matches("0"))
-                {
-                    if(validInput ==true)  
-                    {
-                        B1.setVenue(venue);  
-                        s.nextLine();
-                    }
-                    else if(validInput == false)
-                    {
-                System.out.println("*Invalid venue*.  Please input valid venue:");
-                    }
-             s.nextLine();
-                }
+            {
+                if(validInput ==true)  
+                { 
+                    B1.setVenue2(00);  
+                    B1.setVenue(venue);
+               
+               // System.out.println("Please enter a valid venue or venue number"); 
+               // s.nextLine();
+        }
+           s.nextLine();          //else if(venue.matches("[0-9]+"))
+//                    {
+//                        int i = Integer.parseInt(venue);
+//                        B1.setVenue("");    //setVenue(i);
+//                        B1.setVenue2(0);    //setVenue2();  
+//                        s.nextLine();
+//                    }
+//                    else
+                 
+           
+                   
+        }      
+                
+        }         
+                  
+          s.nextLine();
+                        
+                        
+//                    }
+//                        B1.setVenue(venue);  
+//                        s.nextLine();
+//                    }
+//                    else if(validInput == false)
+//                    {
+//                /System.out.println("*Invalid venue*.  Please input valid venue:");
+//                    }
+//         
+//                }
                 
         // enter the event date and time  
         boolean validInput2 = false;
         System.out.println("Enter event date and time(yyyy-mm-dd 00.00): ");
         String eventDateTime = s.nextLine();
-      
-        
+              
         if(eventDateTime.isEmpty() || eventDateTime.contains("null"))
                 {
                     if(validInput2 ==true)  
@@ -239,127 +302,174 @@ private void addCompetitor(Competition C02)
                     else if(validInput == false)
                     {
                          System.out.println("*Invalid date and time*.  Please input valid date:");
-                         s.nextLine();
+                     
                     }
                 }
-        
-  
+          
         // enter the event record
         System.out.println("Enter event record: ");
-        Double record = s.nextDouble();
+        double record = s.nextDouble();
         B1.setRecord(record);
         s.nextLine();
-
+  
         // BreastStroke class details
         System.out.println("Enter type of event details: ");
         String eventType = s.nextLine();
         B1.setEventType(eventType);
-       // s.nextLine();
-
+    
         // enter the class distance
         boolean validInput3 = false;
         System.out.println("Enter class distance (50 - 1500): ");
-        int distance = s.nextInt();
-       
-            if(B1.getDistance()>50||B1.getDistance()>1500)
-            { 
-                System.out.println("*Invalid distance*. Please enter valid distance:");
-                s.nextLine();
-            }    
-               else if(validInput3 == true)
-               {
-            B1.setDistance(distance); 
-               
-            }
-            s.nextLine();
-            
+        int distance = 0;
+                         
+            while(distance<1)
+            {
+               // System.out.println("Enter competitor's age: ");
+                    if(s.hasNextInt())
+                    {
+                        distance=s.nextInt();
+                    }
+                    else
+                    {
+                        String temp = s.next();
+                        distance=0;
+                    }
+                }   
+            B1.setDistance(distance);
+                  
+                    s.nextLine();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        int distance = s.nextInt();
+//       
+//            if(B1.getDistance()>50||B1.getDistance()>1500)
+//            { 
+//                System.out.println("*Invalid distance*. Please enter valid distance:");
+//            }    
+//               else if(validInput3 == true)
+//               {
+//            B1.setDistance(distance); 
+//            }
+//        }   
               
         // enter the winning time
         boolean valid = false;
         System.out.println("Enter winning time: ");
-        Double winningTime = s.nextDouble(); 
+        double winningTime = s.nextDouble(); 
        
         if(winningTime > 0.0)
         {
             if(valid == true)  
             {
               B1.setWinningTime(winningTime);
-              s.nextLine();
             }
                 if(winningTime < 0.0)
                 {
                     System.out.println("*Invalid winning time*.  Please input valid winning time:");
                     s.nextDouble(); 
                 }
-                    s.nextLine();      
         }
     
         // Result details - placing
-        boolean input = false;
-        Result result = new Result();
+        //boolean input = false;
+        Result r1 = new Result();
         System.out.println("Enter competitor's placing: ");
-        int placed = s.nextInt();
+        int placed = 0;
+        while(placed >= 1 || placed <=8)
+         {
+    
+                         
+           
+            {
+                //System.out.println("Enter competitor's age: ");
+                    if(s.hasNextInt())
+                    {
+                        placed=s.nextInt();
+                    }
+                    else
+                    {
+                        String temp = s.next();
+                        placed=0;
+                    }
+                }   
+           C1.setResults(r1);
+                   
+                    s.nextLine();
         
-        if(result.getPlaced()>1 || result.getPlaced()<9)        
-        { 
-              result.setPlaced(placed);
-        }    
-             else if (input == false)
-             {
-        System.out.println("*Invalid placing.  Please enter placing between 1 and 8");
-            s.nextInt();
-        }     
+        
+        
+        
+        
+        
+        
+        
+        
+//        int placed = s.nextInt();
+//        
+//        if(placed>1 || placed<9)        
+//        { 
+//            r1.setPlaced(placed);
+//        }    
+//            else if (input == false)
+//            {
+//        System.out.println("*Invalid placing.  Please enter placing between 1 and 8");
+//            s.nextInt();
+//        }     
        
         // competitor's race time 
         boolean val = false;     
-        System.out.println("Enter competitor's race time (mins, sec, millisecs): "); // dont understand this
+        System.out.println("Enter competitor's race time: "); // dont understand this
         double raceTime = s.nextDouble();
         
         if(raceTime > 0.0)
         {
             if(val == true)  
             {
-             result.setRaceTime(raceTime);
-                s.nextLine();
+             r1.setRaceTime(raceTime);
             }
                 else if(raceTime <0)
                 {
                     System.out.println("*Invalid race time*.  Please input valid race time: ");
                     s.nextDouble(); 
                 }
-                    s.nextLine();      
         }
      
         // Competition details
         boolean valIn = false;
-        CompHistory history = new CompHistory();
-        System.out.println("Enter competitor's previous wins: ");
+        CompHistory h1 = new CompHistory();
+        System.out.println("Enter competitor's career wins: ");
         int careerWins = s.nextInt();
         
         if(careerWins >=0)
         {
-             history.setCareerWins(careerWins);
+             h1.setCareerWins(careerWins);
         }
         else if(valIn == false)
         {
             System.out.println("*Invalid number*. Please enter number over 1: ");
-            
         }
        
 
-        
+        // add medals and most recent win here
         boolean input2 = false;
-        System.out.println("Enter competitor's personal best result (mins, sec, millisecs): ");
+        System.out.println("Competitor's personal best result: ");
         double personalBest = s.nextDouble();
          
          if(personalBest > 0.0)
         {
             if(input2 ==true)  
             { 
-                history.setPersonalBest(personalBest);
+                h1.setPersonalBest(personalBest);
         
                 //C1.isNewPB();
-                s.nextLine();
+             
             }
                 else if(personalBest < 0)
                 {
@@ -368,17 +478,22 @@ private void addCompetitor(Competition C02)
                 }
                 
         }
-        
+        C1.setCompEvent(B1);
+        C1.setResults(r1);
+        C1.setHistory(h1);
             //Competitor C1 = new Competitor();
             C02.addCompetitor(C1);     
             
+  }
+  }
+  }
+  }
   }
   
 /**
  * This method takes the competitor number and deletes it from competition
  * @param C02 
  */  
- 
 private void deleteCompetitor(Competition C02) 
 {
     Scanner s = new Scanner(System.in);
@@ -428,9 +543,9 @@ private void clearAll(Competition C02)
  */
 private void printComp(Competition C02) 
 {
+    System.out.println("Competition competitors: ");
     System.out.println(C02.toString());
-    
-    }
+ }
 
 
 /**
