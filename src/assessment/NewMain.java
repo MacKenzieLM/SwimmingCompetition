@@ -11,7 +11,7 @@ public class NewMain {
      */
     public static void main(String[] args) {
         
-    //ManualTest M1 = new ManualTest();
+   // ManualTest M1 = new ManualTest();
     //M1.test();
      
     Interface i1 = new Interface();

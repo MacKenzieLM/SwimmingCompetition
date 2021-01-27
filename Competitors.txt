@@ -1,0 +1,6 @@
+224,Tom Thorpe,30,Basildon,3,222.45,Sydney,15,3[5G, 2S, 7B]217.11
+228,James Bell,24,Torquay,1,217.08,Montreal,18,3[2G, 1S, 3B]217.08
+346,Matt Stone,27,London,7,225.76,Tokyo,2,2[1S, 3B]220.47
+424,David Drake,30,Belfast,1,54.01,Blackpool,22,2[7G, 7B]54.01
+100,Alex Moss,19,Glasgow,3,54.45,Milan,9,3[2G, 1S, 1B]54.45
+762,Bill Sykes,21,Basildon,5,760.65,New York,3,2[1G, 2S]760.65

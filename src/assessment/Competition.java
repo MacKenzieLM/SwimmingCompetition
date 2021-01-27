@@ -418,7 +418,7 @@ public boolean checkCompetitor(int compNumber)
  * @param eventNo
  * @return 
  */
-public Boolean checkEvent(int eventNo)
+public boolean checkEvent(int eventNo)
 {
 boolean found = false;
     for(Competitor competitor: competitors)
@@ -460,7 +460,7 @@ public Competitor getCompetitor(int compNumber, Competitor competitor)
  * @param event
  * @return 
  */
-public Event getEvent(int eventNo, Event event)
+public BreastStroke getEvent(int eventNo, BreastStroke event)
 {
     for(Competitor competitor: competitors)
     {
