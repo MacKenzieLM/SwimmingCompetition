@@ -440,8 +440,14 @@ private void addCompetitor(Competition C02)
                     s.nextDouble(); 
                 }
         }
-     
-        // Competition details
+        
+        //Most recent win
+        System.out.println("Enter city of most recent win: ");
+        String recentWin = s.nextLine();
+        C1.getHistory().setMostRecentWin(recentWin);
+        s.nextLine();
+        
+        // Competition career wins
         boolean valIn = false;
         CompHistory h1 = new CompHistory();
         System.out.println("Enter competitor's career wins: ");
@@ -457,7 +463,13 @@ private void addCompetitor(Competition C02)
         }
        
 
-        // add medals and most recent win here
+        // Medals to date
+        System.out.println("Enter medals to date: ");
+        String medals  = s.nextLine();
+        C1.getHistory().setMedals(medals);
+        s.nextLine();
+        
+        // Competitors personal best
         boolean input2 = false;
         System.out.println("Competitor's personal best result: ");
         double personalBest = s.nextDouble();
