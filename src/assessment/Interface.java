@@ -9,7 +9,7 @@ public class Interface {
 public void Interface()
 {
     Competition C02 = new Competition();
-   // C02.loadFromFile();
+    C02.loadFromFile();
         
     int selection = 12;
         while(selection > 0 && selection < 13)
@@ -133,387 +133,331 @@ public Competition performTask(int selection, Competition C02)
  * This method adds a competitor to the list
  */
 private void addCompetitor(Competition C02) 
-  {
+{
     Competitor C1 = new Competitor();
     Scanner s = new Scanner(System.in);
    
-   // Add competitor
-   int compNumber = 0;
+    // Add competitor
+    int compNumber = 0;
     while(compNumber <100 || compNumber > 999)
     {
-        System.out.println("Enter the competitor number (100-999): ");
+        System.out.println("Enter the competitor number (100-999): "); // SAVES TO TEXT FILE
         if(s.hasNextInt())
         {
+            
             compNumber = s.nextInt();
         }
         else
         {
             String temp = s.next();
             compNumber = 0;
-        }
-        s.nextLine();
-    }
+            }
+             s.nextLine();
+            }
   
-   if(C02.checkCompetitor(compNumber)==false)
-   {
-        C1.setCompNumber(compNumber);
    
-        System.out.println("Enter competitor's full name: ");
-        String compName = s.nextLine();
+ if(C02.checkCompetitor(compNumber)==false)
+{
+    C1.setCompNumber(compNumber);
+        System.out.println("Enter competitor's full name: "); // SAVES TO TEXT FILE  
+        String compName = s.nextLine();   
         C1.setCompName(compName);
-        int compAge = 0;
-                         
-            while(compAge<1)
-            {
-                System.out.println("Enter competitor's age: ");
-                    if(s.hasNextInt())
-                    {
-                        compAge=s.nextInt();
-                    }
-                    else
-                    {
-                        String temp = s.next();
-                        compAge=0;
-                    }
-                }   
-                    C1.setCompAge(compAge);
-                    s.nextLine();
-                        
-        System.out.println("Enter competitor's hometown: ");
-        String homeTown = s.nextLine();
-        C1.setHometown(homeTown);
-        
-        
-        
-       
-        // Event details
-//         BreastStroke B1 = new BreastStroke();
-//            
-//            System.out.println("Enter event number: ");
-//            int eventNo = s.nextInt();
-//            
-//            if(C02.checkCompetitor(eventNo)==true)  //.checkArch(arch_name)==true)//
-//            {
-//                B1.setEventNo(C02.addCompetitor(C1)eventNo);   //.setArch(m2.setArchaeo(arch_name, a1));
-//            }
-//            else
-//            {
-//                C02.addCompetitor(C1);
-//                a1.setFull_name(arch_name);
-        
-        
-        
-        
-                                    BreastStroke B1 = new BreastStroke();
-                                    System.out.println("Enter event number (1-100):");
-                                    int eventNo = 0;
 
-                                    while(eventNo <1 || eventNo > 100)
-                                {
-                                   // System.out.println("\nEnter the event number (1-100): ");
-                                    if(s.hasNextInt())
-                                    {
-                                        eventNo = s.nextInt();
-                                    }
-                                    else
-                                    {
-                                        String temp = s.next();
-                                        eventNo = 0;
-                                    }
-        
-        //      int eventNo = 0;
-//                               
-//        while(eventNo < 1 || eventNo > 100)
-//            {
-//                System.out.println("*Invalid event number*.  Please enter valid number:");
-//                eventNo = s.nextInt();
-//                }    
-//        s.nextLine();
-     if(C02.checkCompetitor(eventNo))
-       // if(C02.checkEvent(eventNo)==true)
+
+    int compAge = 0;
+    while(compAge<1 || compAge>99)
+    {
+        System.out.println("Enter competitor's age: "); // SAVES TO TEXT FILE
+        if(s.hasNextInt())
         {
-            C1.setCompEvent(C02.getEvent(eventNo, B1));
+            compAge = s.nextInt();
+            s.nextLine();
         }
         else
         {
-        B1.setEventNo(eventNo);    
-        
-//checking for existing breastroke details and attaching to competitor
-        
-        // menu choice for venue type
-        boolean validInput = false;
-        System.out.println("Enter a venue name or venue number: "); 
-        String venue = s.nextLine();
-        while(validInput)
-           
-        {
-            //String venue = s.nextLine();
-            if(venue.isEmpty() || venue.contains("null") || venue.matches("0"))
-            {
-                if(validInput ==true)  
-                { 
-                    B1.setVenue2(00);  
-                    B1.setVenue(venue);
-               
-               // System.out.println("Please enter a valid venue or venue number"); 
-               // s.nextLine();
+            String temp = s.nextLine();
+            compAge = 0;
         }
-           s.nextLine();          //else if(venue.matches("[0-9]+"))
-//                    {
-//                        int i = Integer.parseInt(venue);
-//                        B1.setVenue("");    //setVenue(i);
-//                        B1.setVenue2(0);    //setVenue2();  
-//                        s.nextLine();
-//                    }
-//                    else
-                 
-           
-                   
-        }      
-                
-        }         
-                  
-          s.nextLine();
-                        
-                        
-//                    }
-//                        B1.setVenue(venue);  
-//                        s.nextLine();
-//                    }
-//                    else if(validInput == false)
-//                    {
-//                /System.out.println("*Invalid venue*.  Please input valid venue:");
-//                    }
-//         
-//                }
-                
-        // enter the event date and time  
-        boolean validInput2 = false;
-        System.out.println("Enter event date and time(yyyy-mm-dd 00.00): ");
-        String eventDateTime = s.nextLine();
-              
-        if(eventDateTime.isEmpty() || eventDateTime.contains("null"))
+    }   
+    C1.setCompAge(compAge);
+
+
+    System.out.println("Enter competitor's hometown: "); // SAVES TO TXT FILE
+    String homeTown = s.nextLine();
+    C1.setHometown(homeTown);
+
+    // Event details
+    BreastStroke B1 = new BreastStroke();
+    System.out.println("Enter event number (1-100):");
+    int eventNo = s.nextInt();
+
+    while(eventNo <1 || eventNo > 100)
+    {
+        System.out.println("Enter event number (1-100):");
+        if(s.hasNextInt())
+        {
+
+            eventNo = s.nextInt();
+            }
+                else
                 {
-                    if(validInput2 ==true)  
+                    String temp = s.next();
+                    eventNo = 0;
+                    }
+        } 
+
+
+if(C02.checkEvent(eventNo)==true)
+{
+    C1.setCompEvent(C02.getEvent(eventNo, B1));
+} 
+else
+{
+
+    B1.setEventNo(eventNo);  
+
+    int choice = 0;
+    int venueID = 0;
+    while(choice<1 || choice>2)
+    {
+         System.out.println("Enter 1 for venue name or 2 for venue number: "); 
+         if(s.hasNextInt())
+         {
+             choice = s.nextInt();
+             s.nextLine();
+
+             if(choice==1)
+             {
+                 String venueName="";
+                 while(venueName.isEmpty() || venueName.equals(""))
+                 {
+                     System.out.println("Enter the venue name: ");
+                     venueName=s.nextLine();
+                     B1.setVenue(venueName);
+                 }
+             }
+             else if (choice==2)
+                 {
+
+                    while(venueID < 1)
                     {
-                        B1.getEventDateTime();  
+                        System.out.println("Enter venue ID: ");
+                        venueID = s.nextInt();
+                        B1.setVenue(venueID); // does not set
                         s.nextLine();
                     }
-                    else if(validInput == false)
-                    {
-                         System.out.println("*Invalid date and time*.  Please input valid date:");
-                     
-                    }
-                }
-          
-        // enter the event record
-        System.out.println("Enter event record: ");
-        double record = s.nextDouble();
-        B1.setRecord(record);
-        s.nextLine();
-  
-        // BreastStroke class details
-        System.out.println("Enter type of event details: ");
-        String eventType = s.nextLine();
-        B1.setEventType(eventType);
-    
-        // enter the class distance
-        boolean validInput3 = false;
-        System.out.println("Enter class distance (50 - 1500): ");
-        int distance = 0;
-                         
-            while(distance<1)
-            {
-               // System.out.println("Enter competitor's age: ");
-                    if(s.hasNextInt())
-                    {
-                        distance=s.nextInt();
-                    }
-                    else
-                    {
-                        String temp = s.next();
-                        distance=0;
-                    }
-                }   
+                 }
+                     }
+                     else
+                     {
+                         String temp = s.next();
+                         choice = 0;
+                     }
+                 }
+
+
+    // enter the event date and time  
+    String eventDateTime = "";
+
+    while(eventDateTime.isEmpty() || eventDateTime.contains("null"))
+    {
+        System.out.println("Enter event date and time(yyyy-mm-dd 00.00): ");
+        eventDateTime = s.nextLine();
+    }
+
+    B1.setEventDateTime(eventDateTime);
+  //  C02.getEvent(eventNo, B1).setEventDateTime(eventDateTime);
+
+    // enter the event record
+    System.out.println("Enter event record: "); // SAVES TO TEXT FILE
+    double record = s.nextDouble();
+    B1.setRecord(record);
+    s.nextLine();
+
+
+    // BreastStroke class details
+    B1.setEventType("Breaststroke");
+
+    // enter the class distance
+
+    int distance = 0;
+
+    while(distance<50 || distance >1500)
+    {
+        System.out.println("Enter class distance (50 - 1500): "); // SAVES TO TEXT FILE
+        if(s.hasNextInt())
+        {
+            distance=s.nextInt();
+        }
+        else
+        {
+            String temp = s.next();
+            distance=0;
+        }
+    }   
             B1.setDistance(distance);
-                  
-                    s.nextLine();
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        int distance = s.nextInt();
-//       
-//            if(B1.getDistance()>50||B1.getDistance()>1500)
-//            { 
-//                System.out.println("*Invalid distance*. Please enter valid distance:");
-//            }    
-//               else if(validInput3 == true)
-//               {
-//            B1.setDistance(distance); 
-//            }
-//        }   
-              
-        // enter the winning time
+
+            s.nextLine();
+
+            C1.setCompEvent(B1);
+        }
+         
+ // enter the winning time
         boolean valid = false;
-        System.out.println("Enter winning time: ");
+        System.out.println("Enter winning time: "); // SAVE TO TEXT FILE
         double winningTime = s.nextDouble(); 
-       
-        if(winningTime > 0.0)
+                       
+        if(winningTime<= 0.0)
         {
             if(valid == true)  
-            {
+            {  
               B1.setWinningTime(winningTime);
+               
+                
             }
-                if(winningTime < 0.0)
-                {
-                    System.out.println("*Invalid winning time*.  Please input valid winning time:");
-                    s.nextDouble(); 
-                }
-        }
-    
-        // Result details - placing
-        //boolean input = false;
-        Result r1 = new Result();
-        System.out.println("Enter competitor's placing: ");
-        int placed = 0;
-        while(placed >= 1 || placed <=8)
-         {
-    
-                         
-           
+            else
             {
-                //System.out.println("Enter competitor's age: ");
-                    if(s.hasNextInt())
-                    {
-                        placed=s.nextInt();
-                    }
-                    else
-                    {
-                        String temp = s.next();
-                        placed=0;
-                    }
-                }   
-           C1.setResults(r1);
-                   
-                    s.nextLine();
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        int placed = s.nextInt();
-//        
-//        if(placed>1 || placed<9)        
-//        { 
-//            r1.setPlaced(placed);
-//        }    
-//            else if (input == false)
-//            {
-//        System.out.println("*Invalid placing.  Please enter placing between 1 and 8");
-//            s.nextInt();
-//        }     
-       
-        // competitor's race time 
-        boolean val = false;     
-        System.out.println("Enter competitor's race time: "); // dont understand this
-        double raceTime = s.nextDouble();
-        
-        if(raceTime > 0.0)
+                 System.out.println("*Invalid winning time*.  Please input valid winning time:");
+                winningTime = s.nextDouble();   
+            }
+                
+        }
+//    // enter the winning time //like 
+//  // Add competitor
+//  double winningTime = -1.0;
+//  while(winningTime < 0.0)
+//
+//
+//    System.out.println("Enter winning time: "); // SAVES TO TEXT FILE
+//       if(s.hasNextDouble())
+//       {
+//
+//        winningTime = s.nextDouble();
+//       }
+//       else
+//       {
+//        String temp = s.next();
+//        winningTime = -1.0;
+//        }
+//         s.nextLine();
+//            }
+//   //  B1.set
+//   //  C1.setCompEvent(compEvent).
+//  
+//   C1.setResults(winningTime);
+//   B1.setWinningTime(winningTime); // do the same for racetime and personal best
+
+    // Result details - placing
+    //boolean input = false;
+    Result R1 = new Result();
+    System.out.println("Enter competitor's placing: "); // doesnt loop with continous output if wrong input
+    int placed = 0;
+    while(placed <1 || placed >8)
+    {
+        if(s.hasNextInt())
         {
-            if(val == true)  
-            {
-             r1.setRaceTime(raceTime);
+            placed=s.nextInt();
             }
-                else if(raceTime <0)
-                {
-                    System.out.println("*Invalid race time*.  Please input valid race time: ");
-                    s.nextDouble(); 
+            else
+            {
+                String temp = s.next();
                 }
+    }
+    R1.setPlaced(placed);
+              
+       
+    // competitor's race time 
+    boolean val = false;     
+    System.out.println("Enter competitor's race time: "); // SAVES TO TEXT FILE
+    double raceTime = s.nextDouble();
+
+    if(raceTime > 0.0)
+    {
+        if(val == true)  
+        {
+           // C1.getResults().setRaceTime(raceTime);
+
         }
+        else if(raceTime <0)
+        {
+            System.out.println("*Invalid race time*.  Please input valid race time: ");
+            s.nextDouble(); 
+        }
+    }     
+    R1.setRaceTime(raceTime);
+
+    //Most recent win
+    s.nextLine();
         
-        //Most recent win
+        C1.setResults(R1);
+        
+        CompHistory CH1 = new CompHistory();
+        
         System.out.println("Enter city of most recent win: ");
-        String recentWin = s.nextLine();
-        C1.getHistory().setMostRecentWin(recentWin);
-        s.nextLine();
-        
+        String mostRecentWin = s.nextLine();
+        CH1.setMostRecentWin(mostRecentWin);
+              
         // Competition career wins
         boolean valIn = false;
-        CompHistory h1 = new CompHistory();
-        System.out.println("Enter competitor's career wins: ");
+        
+        System.out.println("Enter competitor's career wins: "); // SAVES TO TEXT FILE
         int careerWins = s.nextInt();
         
         if(careerWins >=0)
         {
-             h1.setCareerWins(careerWins);
+                CH1.setCareerWins(careerWins);
         }
         else if(valIn == false)
         {
-            System.out.println("*Invalid number*. Please enter number over 1: ");
+                System.out.println("*Invalid number*. Please enter number over 1: ");
         }
        
 
         // Medals to date
-        System.out.println("Enter medals to date: ");
-        String medals  = s.nextLine();
-        C1.getHistory().setMedals(medals);
         s.nextLine();
+        System.out.println("Enter medals to date (comma separated list): ");
+        String medals  = s.nextLine();
+      
+        CH1.setMedals(medals);
+    
         
         // Competitors personal best
         boolean input2 = false;
-        System.out.println("Competitor's personal best result: ");
+        System.out.println("Competitor's personal best result: "); // SAVES TO TEXT FILE
         double personalBest = s.nextDouble();
          
          if(personalBest > 0.0)
-        {
-            if(input2 ==true)  
-            { 
-                h1.setPersonalBest(personalBest);
-        
-                //C1.isNewPB();
-             
-            }
-                else if(personalBest < 0)
-                {
-                    System.out.println("*Invalid personal best*.  Please input valid personal best:");
-                    s.nextDouble(); 
-                }
-                
-        }
-        C1.setCompEvent(B1);
-        C1.setResults(r1);
-        C1.setHistory(h1);
-            //Competitor C1 = new Competitor();
-            C02.addCompetitor(C1);     
-            
-  }
-  }
-  }
-  }
-  }
-  
+         {
+
+            CH1.setPersonalBest(personalBest);
+         }
+         else if(personalBest < 0)
+         {
+             System.out.println("*Invalid personal best*.  Please input valid personal best:");
+             s.nextDouble(); 
+         }
+
+        C1.setHistory(CH1);
+         
+        C02.addCompetitor(C1);  
+           
+     }
+   
+}
+    
 /**
  * This method takes the competitor number and deletes it from competition
  * @param C02 
  */  
 private void deleteCompetitor(Competition C02) 
+        
 {
     Scanner s = new Scanner(System.in);
     System.out.println("Enter the competitor number to delete: ");
     int compNumber = s.nextInt();
     
     C02.deleteCompetitor(compNumber);
-    System.out.println("Competitor "+compNumber+ "has been deleted");
+    System.out.println("Competitor " +compNumber+ " has been deleted");
     }
 
 
@@ -559,21 +503,22 @@ private void printComp(Competition C02)
     System.out.println(C02.toString());
  }
 
+     /**
+     * this method gets the event details
+     * @param C02
+     * @param event 
+     */
+    private void getAllByEvent(Competition C02) 
+    {
+        Scanner s = new Scanner(System.in);
 
-/**
- * this method gets the event details
- * @param C02
- * @param event 
- */
-private void getAllByEvent(Competition C02) 
-{
-    Scanner s = new Scanner(System.in);
-    
-    System.out.println("Enter the competition event: ");
-    int eventNo = s.nextInt();
-                        
-    C02.getAllByEvent(eventNo);
-   }
+
+        System.out.println("Enter the competition event number: ");
+        int eventNo = s.nextInt();
+
+      C02.getAllByEvent(eventNo);
+       }
+
 
 /**
  * This method saves the details to file
@@ -591,7 +536,7 @@ private void saveToFile(Competition C02)
  */
 private Competition loadFromFile(Competition C02) 
 {
-    System.out.println("\nSwimming competition loaded from file");
+    System.out.println("\nSwimming competition loaded from file:");
     C02.loadFromFile();
     return C02;
         
@@ -641,10 +586,7 @@ private void winners(Competition C02)
 private void getQualifiers(Competition C02) 
 {
     C02.getQualifiers();
-  //  }
-
-   // private void If(Boolean checkEvent) {
-   //     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
     }
 }
 

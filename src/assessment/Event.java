@@ -11,11 +11,10 @@ abstract class Event {
     private String venue;
     private int venueID;
     private String eventDateTime;
-    protected Double record;
+    protected double record;
 
     
-    public Event(int eventNo, String venue, 
-    int venueID, String eventDateTime, Double record) 
+    public Event(int eventNo, String venue, int venueID, String eventDateTime, double record) 
     {
         this.eventNo = eventNo;
         this.venue = venue;
@@ -28,7 +27,7 @@ abstract class Event {
 public Event() 
 {
     eventNo = 0;
-    venue = "";
+    venue = null;
     venueID = 0;
     eventDateTime = "";
     record = 00.00;
@@ -63,7 +62,7 @@ public int getVenueID()
   return venueID;  
 }
 
-public void setVenueID(int venueID)
+public void setVenue(int venueID)
 {
     this.venueID = venueID;
 }
@@ -89,13 +88,15 @@ public void setRecord(Double record) {
 @Override
 public String toString()
 {
+    String str = "";
 
-    System.out.println("\nEvent Number: " + this.getEventNo()
+    str += "\nEvent Number: " + this.getEventNo()
         + "\nVenue: " + this.getVenue()
         + "\nVenue ID: " + this.getVenueID()
-        + "\nEvent date and time: " + this.getEventDateTime()
-        + "\nEvent record: " + this.getRecord().toString());
-    return "";
+        + "\nEvent date and time: " + this.getEventDateTime() 
+        + "\nEvent record: " + this.getRecord();
+    
+    return str;
 }    
 
 public String toFile()

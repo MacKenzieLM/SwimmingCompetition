@@ -6,7 +6,7 @@ package assessment;
  */
 public class Competitor {
    
-    private int compNumber;
+    int compNumber;
     private String compName;
     private int compAge;
     private String hometown;
@@ -205,14 +205,13 @@ public boolean isNewPB()
 {
 String str = "";
 
-str += "--COMPETITOR DETAILS-- "
+str += "\n\n--COMPETITOR DETAILS-- "
     + "\nCompetitor Number: " + this.getCompNumber()
     + "\nCompetitor Name: " + this.getCompName()
     + "\nCompetitor Age: " + this.getCompAge()
     + "\nCompetitor Hometown: " + this.getHometown()
     + "\nCompetitor New Personal Best: " + this.isNewPB()
-    + "\nCompetitor Event: " + this.getCompEvent().getEventType()
-   // +  this.setCompEvent(compEvent).toString()
+    +  this.getCompEvent().toString() 
     +  this.getResults().toString()
     +  this.getHistory().toString();
     return str;
@@ -231,7 +230,7 @@ String str = "";
         + "," + this.getCompName()
         + "," + this.getCompAge()
         + "," + this.getHometown()
-       // + "," + this.getCompEvent()
+        + "," + this.getCompEvent().toFile()
         + "," + this.getResults().toFile() 
         + "," + this.getHistory().toFile();    
         return str;    

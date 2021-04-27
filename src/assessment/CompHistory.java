@@ -16,6 +16,13 @@ public class CompHistory {
     private ArrayList<String> medals;
     private double personalBest;
   
+public CompHistory() 
+{
+    mostRecentWin = "";
+    careerWins = 0;
+    medals = new ArrayList<String>();
+    personalBest = 00.00;
+    }
 
 public CompHistory(String mostRecentWin, int careerWins, ArrayList<String> medals, double personalBest) 
 {
@@ -25,12 +32,13 @@ public CompHistory(String mostRecentWin, int careerWins, ArrayList<String> medal
     this.personalBest = personalBest;
 }
 
-public CompHistory() 
+/**
+ * This method returns the most recent win for the competitor.
+ * @return 
+ */
+public String getMostRecentWin() 
 {
-    mostRecentWin = "";
-    careerWins = 0;
-    medals = new ArrayList<>();
-    personalBest = 00.00;
+    return mostRecentWin;
     }
 
 /**
@@ -43,12 +51,12 @@ public void setMostRecentWin(String mostRecentWin)
     }
 
 /**
- * This method returns the most recent win for the competitor.
+ * This method return the career wins for the competitor.
  * @return 
  */
-public String getMostRecentWin() 
+public int getCareerWins() 
 {
-    return mostRecentWin;
+    return careerWins;
     }
 
 /**
@@ -61,12 +69,12 @@ public void setCareerWins(int careerWins)
     }
 
 /**
- * This method return the career wins for the competitor.
+ * This returns the medals won by the competitors.
  * @return 
  */
-public int getCareerWins() 
+public ArrayList<String> getMedals() 
 {
-    return careerWins;
+    return medals;
     }
 
 /**
@@ -81,12 +89,12 @@ public void setMedals(String medals)
     }    
 
 /**
- * This returns the medals won by the competitors.
+ * This method returns the personal best for the competitors.
  * @return 
  */
-public ArrayList<String> getMedals() 
+public double getPersonalBest() 
 {
-    return medals;
+    return personalBest;
     }
 
 /**
@@ -98,14 +106,7 @@ public void setPersonalBest(double personalBest)
     this.personalBest = personalBest;
     }
 
-/**
- * This method returns the personal best for the competitors.
- * @return 
- */
-public double getPersonalBest() 
-{
-    return personalBest;
-    }
+
 
 /**
  * This returns the most recent win, career wins, medal haul and 
@@ -118,7 +119,7 @@ public String toString()
 {
     String str = "";
 
-    str += "\n--COMPETITOR HISTORY--"
+    str += "\n\n--COMPETITOR HISTORY--"
     + "\nMost Recent Win: " + this.getMostRecentWin()
     + "\nCareer Wins: " + this.getCareerWins()
     + "\nMedals: " + this.getMedals()

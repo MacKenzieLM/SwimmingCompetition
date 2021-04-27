@@ -10,27 +10,30 @@ public class BreastStroke extends Event
 {
     public String eventType;
     public int distance;
-    public Double winningTime;
+    public double winningTime;
     public Boolean newRecord;
     public String venue;
-    public int venue2;
+    public int venueID;
+    
+    
 
-    public BreastStroke(String eventType, int distance, Double winningTime, int eventNo, String venue, int venueID, String eventDateTime, Double record) {
+    public BreastStroke(String eventType, int distance, Double winningTime, int eventNo, String venue, int venueID, String eventDateTime, double record) {
         super(eventNo, venue, venueID, eventDateTime, record);
-        this.eventType = eventType;
-        this.distance = distance;
+       this.eventType = eventType;
+       this.distance = distance;
         this.winningTime = winningTime;
         this.venue = venue;
+        this.venueID = venueID;
     }
 
-    public BreastStroke() {
+    public BreastStroke() {  
         super();
         eventType = "";
         distance = 0;
-        winningTime = 00.00;
+        winningTime = 0.0;
         newRecord = false;
-        venue2 = 0;
-    }
+        venueID = 0;
+    }   
 
 /**
  * This method returns the event type.
@@ -68,7 +71,7 @@ public void setDistance(int distance) {
  * This method returns the winning time for the competitor.
  * @return 
  */
-public Double getWinningTime() {
+public double getWinningTime() {
     return winningTime;
 }
 
@@ -76,7 +79,7 @@ public Double getWinningTime() {
  * This method sets the winning time for the competitor.
  * @param winningTime 
  */
-public void setWinningTime(Double winningTime) {
+public void setWinningTime(double winningTime) {
     this.winningTime = winningTime;
 }
 
@@ -96,46 +99,6 @@ public boolean isNewRecord() {
 }
 
 /**
- * This method returns the venue if it has a proper name
- * and is over-ridden from Event class.
- * @return 
- */
-@Override
-public String getVenue()
-{
-    return venue;
-}
-
-/**
- * This method sets the venue (name version) and is over-ridden from Event class.
- * @param venue 
- */
-@Override
-public void setVenue(String venue)
-{
-this.venue = venue;
-}
-
-/**
- * This method sets the venue if it is known by a number.
- * @param venue2
- * @return 
- */
-public int getVenue2(int venue2)
-{
-    return venue2;
-}
-
-/**
- * This method sets the venue (numerical).
- * @param venue2
- */
-public void setVenue2(int venue2)
-{
-this.venue2 = venue2;
-}
-
-/**
  * this method returns as a string, the event type, distance and winning time.
  * This method is over-ridden from Event class.
  * @return 
@@ -145,11 +108,11 @@ public String toString()
 {
 String str = "";
 
-str += "\n\nBreastStroke Class: "
+str += "\n\n--BREASTSTROKE CLASS-- "
     + "\nEvent Type: " + this.getEventType()
-    + "\nDistance (metres): " + this.getDistance() +"m"
+    + "\nDistance (metres): " + this.getDistance()
     + "\nWinning Time: " + this.getWinningTime()
-        + super.toString();    
+    + super.toString();    
 
     return str;
 }    

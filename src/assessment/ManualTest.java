@@ -8,14 +8,16 @@ public class ManualTest {
        
     public void test()
     {
-        BreastStroke B1 = new BreastStroke();
-        B1.setEventNo(12);
+        BreastStroke B1 = new BreastStroke();  // constructors
+        B1.setEventNo(12); // setters
         B1.setVenue("Birmingham");
         B1.setEventDateTime("2016-12-20 14.45");
         B1.setRecord(214.34);
         B1.setEventType("Breaststroke");
         B1.setDistance(250);
         B1.setWinningTime(215.13);
+        
+        System.out.println(B1.toString()); // getters
           
         BreastStroke B2 = new BreastStroke();
         B2.setEventNo(15);
@@ -34,10 +36,13 @@ public class ManualTest {
         B3.setEventType("Breaststroke");
         B3.setDistance(1000);
         B3.setWinningTime(766.90);
+        
 //        
         Result R1 = new Result();
         R1.setRaceTime(222.45);
         R1.setPlaced(3);
+        
+        R1.toString(); // one comp history and 1 competitor (to string) as demos
 //       
         Result R2 = new Result();
         R2.setRaceTime(217.08);
@@ -162,22 +167,21 @@ public class ManualTest {
        //System.out.println(B2.toString());
        //System.out.println(B3.toString());
         
-        Competition CO1 = new Competition();
-        System.out.println(CO1.toString());
-        CO1.addCompetitor(C1);
-        CO1.addCompetitor(C2);
-        CO1.addCompetitor(C3);
-        CO1.addCompetitor(C4);
-        CO1.addCompetitor(C5);
-        CO1.addCompetitor(C6);
+        Competition C02 = new Competition();
+        System.out.println(C02.toString()); // add a competitor but display before its added
+        C02.addCompetitor(C2);
+        C02.addCompetitor(C3);
+        C02.addCompetitor(C4);
+        C02.addCompetitor(C5);
+        C02.addCompetitor(C6);
         
-        CO1.saveToFile();
+        C02.saveToFile();
+  
         
+       // C02.clearAll();
+       // C02.loadFromFile();
         
-       // CO1.clearAll();
-       // CO1.loadFromFile();
-        
-       // CO1.winners(5);
+       // C02.winners(5);
     }
 }
     

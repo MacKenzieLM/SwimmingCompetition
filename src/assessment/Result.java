@@ -82,7 +82,7 @@ public String toString()
 {
     String string = "";
 
-    string +=("\n--COMPETITOR RESULTS-- "
+    string +=("\n\n--COMPETITOR RESULTS-- "
     + "\nPlaced: " + this.getPlaced()
     + "\nRace Time: " + this.getRaceTime()
     + "\nQualified: " + this.isQualified());
